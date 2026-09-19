@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap');
+
+:root { --ink: #17312b; --muted: #6d7d76; --paper: #f5f3ed; --mint: #d8eee0; --green: #1e6b51; --line: #d7dfd8; --orange: #f08b55; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: Manrope, sans-serif; }
+body:before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .35; background-image: radial-gradient(#b7cabe 1px, transparent 1px); background-size: 22px 22px; }
+main { position: relative; max-width: 1180px; }
+.hero { display: flex; justify-content: space-between; align-items: end; padding: 1.2rem 0 2rem; border-bottom: 1px solid var(--line); }
+.eyebrow { color: var(--green); font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+h1 { font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: .98; letter-spacing: -.05em; margin: .4rem 0 .9rem; font-weight: 800; }
+h1 em { color: var(--green); font-style: normal; }
+h2 { font-size: 1.15rem; margin: 0; font-weight: 800; }
+.lead { color: var(--muted); font-size: .95rem; }
+code { color: var(--green); background: #e5eee7; padding: .15rem .35rem; border-radius: 4px; }
+.hero-mark { color: var(--orange); font-size: 8rem; line-height: .7; font-weight: 800; }
+.panel { background: rgba(255,255,255,.76); border: 1px solid var(--line); border-radius: 10px; padding: clamp(1.25rem, 3vw, 2rem); box-shadow: 0 12px 35px rgba(23,49,43,.06); }
+.input-panel { border-top: 5px solid var(--green); }
+.result-panel { border-top: 5px solid var(--orange); }
+.panel-heading { display: flex; gap: .85rem; align-items: center; }
+.step-number { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--mint); color: var(--green); font-family: 'DM Mono', monospace; font-size: .78rem; }
+.step-number.accent { background: #fbe1d2; color: #a44f26; }
+.form-label { color: var(--muted); font-size: .82rem; font-weight: 700; }
+.number-input { border: 1px solid var(--line); border-radius: 6px; padding: .9rem 1rem; color: var(--ink); font: 500 1.1rem 'DM Mono', monospace; background: #fff; }
+.number-input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(30,107,81,.12); }
+.btn-primary { border: 0; border-radius: 6px; padding: .9rem 1rem; background: var(--green); font-weight: 800; }
+.btn-primary:hover { background: #15523d; }
+.btn-primary span { margin-left: .5rem; font-size: 1.2rem; }
+.hint, .empty-content p { color: var(--muted); font-size: .78rem; }
+.result-number { overflow-wrap: anywhere; margin-top: 1.6rem; color: var(--green); font: 500 clamp(1.7rem, 4vw, 2.8rem) 'DM Mono', monospace; }
+.equation { color: var(--muted); font: .82rem 'DM Mono', monospace; margin-top: .6rem; overflow-wrap: anywhere; }
+.progress-title { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); margin-top: 1.7rem; padding-top: 1rem; font-size: .8rem; font-weight: 800; }
+.badge { background: var(--mint); color: var(--green); font: .65rem 'DM Mono', monospace; }
+.process-table { font-size: .75rem; margin-top: .8rem; white-space: nowrap; }
+.process-table th { color: var(--muted); font-size: .63rem; font-weight: 700; text-transform: uppercase; }
+.process-table td, .process-table th { border-color: var(--line); padding: .65rem .45rem; }
+.process-table td { font-family: 'DM Mono', monospace; }
+.result-digit { color: var(--green); font-weight: 700; background: var(--mint); }
+.empty-panel { min-height: 390px; border-style: dashed; box-shadow: none; background: rgba(216,238,224,.25); }
+.empty-content { text-align: center; max-width: 250px; }.empty-symbol { color: var(--orange); font: 4rem 'DM Mono', monospace; }.empty-content h2 { margin: .5rem 0; }
+.footer { display: flex; justify-content: space-between; color: var(--muted); font: .68rem 'DM Mono', monospace; }
+@media (max-width: 576px) { .hero-mark { font-size: 5rem; } .hero { align-items: center; } .footer { gap: 1rem; flex-direction: column; } }
