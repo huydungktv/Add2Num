@@ -1,6 +1,6 @@
 # Add2Num - Task 2
 
-Ứng dụng web Spring Boot cho phép cộng hai số rất lớn, sử dụng lại thư viện `big-number-adder-0.0.1.jar` của Task 1, source code thư viện này được branch core
+Ứng dụng web Spring Boot cho phép cộng hai số rất lớn, sử dụng lại thư viện `big-number-adder-0.0.1.jar` của Task 1, source code thư viện này được lưu tại branch `core`
 
 ## Công nghệ
 
