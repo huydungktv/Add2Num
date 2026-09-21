@@ -4,43 +4,54 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.5</version>
+        <relativePath/>
+    </parent>
+
     <groupId>com.example</groupId>
-    <artifactId>big-number-adder</artifactId>
+    <artifactId>add2num</artifactId>
     <version>0.0.1</version>
+    <name>Add2Num</name>
+    <description>Web application for adding large numbers</description>
 
     <properties>
-        <maven.compiler.release>21</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.10.2</junit.version>
-        <slf4j.version>2.0.13</slf4j.version>
-        <logback.version>1.5.6</logback.version>
+        <java.version>21</java.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
+            <groupId>com.example</groupId>
+            <artifactId>big-number-adder</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/big-number-adder-0.0.1.jar</systemPath>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
     </build>

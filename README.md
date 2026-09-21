@@ -1,4 +1,4 @@
-# Big Number Adder
+# Add2Num - Task 2
 
 >Dự án Java 21 minh họa phép cộng hai số nguyên rất lớn được biểu diễn dưới dạng chuỗi, không sử dụng `BigInteger`.
 
@@ -23,13 +23,7 @@ mvn clean test
 mvn clean package
 ```
 
-## Sử dụng
-
-```java
-MyBigNumber myBigNumber = new MyBigNumber();
-String result = myBigNumber.sum("1234", "897");
-// result = "2131"
-```
+Mở trình duyệt tại http://localhost:8080.
 
 ## Quy tắc dữ liệu
 
