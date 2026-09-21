@@ -1,31 +1,36 @@
-## 1. Truy xuất nguồn gốc
+## 1. Liên kết đặc tả
 
-- **Issue liên kết:** Closes #WO-201
-- **Đường dẫn đặc tả:** `docs/work-order-decomposition.md`
+Closes #<Issue_Number> | Spec document: [link]
 
-## 2. Khai báo sử dụng AI và nguồn gốc nội dung
+## 2. Tóm tắt thay đổi
 
-- [ ] **Công cụ AI đã sử dụng:** GitHub Copilot Chat / Inline Autocomplete
-- [ ] **Prompt / ngữ cảnh đã cung cấp:** Đã sử dụng file đặc tả làm ngữ cảnh.
-- [ ] **Tóm tắt file đã chỉnh sửa:**
-  - File được sinh: `docs/work-order-decomposition.md`
-  - File viết thủ công: `.copilotignore`, `.github/`
+- Thay đổi chính:
+- Ảnh hưởng đến API hoặc hành vi:
 
-## 3. Xác minh và bằng chứng
+## 3. Kế hoạch và bằng chứng kiểm thử
 
-- [ ] Unit test đã được thêm / cập nhật nếu thay đổi runtime.
-- [ ] Linter và static analysis pass, không có warning.
-- [ ] Đã hoàn tất review đặc tả theo hướng dẫn domain.
-- [ ] Đã xác nhận PR không chứa thay đổi ứng dụng ngoài phạm vi.
+- [ ] Unit test đã được thêm hoặc cập nhật và pass.
+- [ ] Đã chạy `mvn clean test`.
+- [ ] Integration test log được đính kèm nếu áp dụng.
 
-## 4. Checklist rủi ro và bảo mật
+```text
+[Paste test output here]
+```
 
-- [ ] Quét secret: Không có credential hoặc API key hardcode trong code hay log prompt.
-- [ ] Kiểm tra OWASP: Đã sanitize input parameter và xác minh authorization.
-- [ ] Kế hoạch rollback: PR chỉ chứa tài liệu/cấu hình, không ảnh hưởng runtime.
+## 4. Khai báo sử dụng AI
 
-## 5. Trước khi merge
+- [ ] Không sử dụng AI.
+- [ ] Có sử dụng GitHub Copilot/AI để hỗ trợ.
+- [ ] Con người đã đọc, xác minh và kiểm thử toàn bộ logic AI sinh ra.
 
-- [ ] Branch đã cập nhật với `main`/`core`.
-- [ ] Tài liệu đã được cập nhật.
+## 5. Checklist bảo mật
+
+- [ ] Không có secret, API key hoặc credential hardcode.
+- [ ] Input validation phù hợp đã được áp dụng.
+- [ ] Không đưa dữ liệu nhạy cảm vào prompt hoặc log.
+
+## 6. Trước khi merge
+
+- [ ] Branch đã cập nhật với `main`/`develop`.
+- [ ] Documentation đã được cập nhật (`README.md` hoặc `/docs`).
 - [ ] Reviewer là con người đã phê duyệt.
