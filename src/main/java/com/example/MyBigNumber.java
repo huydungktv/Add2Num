@@ -8,8 +8,8 @@ public class MyBigNumber {
     private static final Logger log = LoggerFactory.getLogger(MyBigNumber.class);
 
     public String sum(String firstNumber, String secondNumber) {
-        // validateInput(firstNumber);
-        // validateInput(secondNumber);
+        validateInput(firstNumber);
+        validateInput(secondNumber);
 
         StringBuilder reversedResult = new StringBuilder();
         int index1 = firstNumber.length() - 1;
