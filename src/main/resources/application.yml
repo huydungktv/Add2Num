@@ -1,0 +1,20 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+security:
+  api-key: ${ADD2NUM_API_KEY:}
+
+addition:
+  max-number-length: ${MAX_NUMBER_LENGTH:100000}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
