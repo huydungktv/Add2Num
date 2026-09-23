@@ -28,7 +28,7 @@ public class MyBigNumber {
             carry = total / 10;
 
             reversedResult.append(resultDigit);
-            log.info("digit1={}, digit2={}, resultDigit={}, carry={}",
+                log.debug("digit1={}, digit2={}, resultDigit={}, carry={}",
                     digit1, digit2, resultDigit, carry);
 
             index1--;

@@ -164,6 +164,32 @@ Test bao gồm:
 - Input không hợp lệ.
 - Input vượt giới hạn độ dài.
 - OpenAPI document.
+
+## Benchmark hiệu năng thuật toán
+
+Benchmark JMH đo trực tiếp phương thức `MyBigNumber.sum(String firstNumber, String secondNumber)`, không bao gồm HTTP, JSON serialization hoặc Spring Security. Các kích thước được đo mặc định là `10`, `1000` và `100000` chữ số.
+
+Chạy benchmark:
+
+```powershell
+mvn -Pbenchmark clean compile dependency:build-classpath `
+	"-Dmdep.outputFile=target/jmh-classpath.txt"
+$jmhClasspath = "target\classes;" + (Get-Content target\jmh-classpath.txt -Raw).Trim()
+java -cp $jmhClasspath org.openjdk.jmh.Main MyBigNumberBenchmark -f 1 -wi 5 -i 5 -w 1s -r 1s
+```
+
+Kết quả dùng đơn vị `ms/op` và được đo sau warm-up JVM. Không chạy benchmark trong `mvn test` hoặc CI verification thông thường; chỉ chạy khi cần đánh giá hiệu năng.
+
+Benchmark sử dụng hai số dạng `999...999` và `111...111`, qua đó kiểm tra trường hợp cộng có carry nhiều chữ số. Có thể lọc một kích thước cụ thể:
+
+```powershell
+mvn -Pbenchmark clean compile dependency:build-classpath `
+	"-Dmdep.outputFile=target/jmh-classpath.txt"
+$jmhClasspath = "target\classes;" + (Get-Content target\jmh-classpath.txt -Raw).Trim()
+java -cp $jmhClasspath org.openjdk.jmh.Main MyBigNumberBenchmark -p numberOfDigits=1000 -f 1 -wi 5 -i 5
+```
+
+Khi đánh giá, nên so sánh `Score` và `Error` của cùng môi trường JVM, đồng thời ghi nhận kích thước input. Log từng chữ số đã được đặt ở mức `DEBUG` để không làm sai lệch phép đo mặc định.
 ## Thuật toán lõi
 
 Thuật toán xử lý hai chuỗi từ phải sang trái, cộng từng chữ số cùng số nhớ, sau đó đảo ngược kết quả. Lớp xử lý lõi vẫn được giữ độc lập phía sau service để bảo toàn logic cộng số hiện tại.
