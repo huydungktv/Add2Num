@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -38,6 +39,12 @@ public class AdditionController {
     })
     public ResponseEntity<AdditionResponse> add(@Valid @RequestBody AdditionRequest request) {
         String result = additionService.add(request.firstNumber(), request.secondNumber());
+        return ResponseEntity.ok(new AdditionResponse(result));
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<AdditionResponse> add(@RequestParam String firstNumber, @RequestParam String secondNumber) {
+        String result = additionService.add(firstNumber, secondNumber);
         return ResponseEntity.ok(new AdditionResponse(result));
     }
 }
