@@ -11,9 +11,11 @@ public class MyBigNumber {
         validateInput(firstNumber);
         validateInput(secondNumber);
 
-        StringBuilder reversedResult = new StringBuilder();
+        int maxLength = Math.max(firstNumber.length(), secondNumber.length());
+        char[] result = new char[maxLength + 1];
         int index1 = firstNumber.length() - 1;
         int index2 = secondNumber.length() - 1;
+        int position = result.length - 1;
         int carry = 0;
         int digit1;
         int digit2;
@@ -27,7 +29,7 @@ public class MyBigNumber {
             resultDigit = total % 10;
             carry = total / 10;
 
-            reversedResult.append(resultDigit);
+            result[position--] = (char) ('0' + resultDigit);
                 log.debug("digit1={}, digit2={}, resultDigit={}, carry={}",
                     digit1, digit2, resultDigit, carry);
 
@@ -35,7 +37,8 @@ public class MyBigNumber {
             index2--;
         }
 
-        return reversedResult.reverse().toString();
+        int start = position + 1;
+        return new String(result, start, result.length - start);
     }
 
     private void validateInput(String value) {
