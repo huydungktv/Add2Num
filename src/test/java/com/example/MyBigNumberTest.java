@@ -36,7 +36,7 @@ class MyBigNumberTest {
 
     @Test
     void shouldHandleVeryLargeNumbers() {
-        assertEquals("1000000000000000000000000000000",
+        assertEquals("a1000000000000000000000000000000",
                 myBigNumber.sum("999999999999999999999999999999", "1"));
     }
 

@@ -25,10 +25,21 @@ public class AdditionController {
 
     private final AdditionService additionService;
 
+    /**
+     * Constructs the addition controller with the service used to perform large-number addition.
+     *
+     * @param additionService the service that handles addition logic
+     */
     public AdditionController(AdditionService additionService) {
         this.additionService = additionService;
     }
 
+    /**
+     * Adds two large non-negative integers submitted as a JSON request body.
+     *
+     * @param request the request containing the two numbers to add
+     * @return a response entity containing the sum as a string
+     */
     @PostMapping
     @Operation(summary = "Add two large numbers")
     @SecurityRequirement(name = "bearerAuth")
@@ -42,6 +53,13 @@ public class AdditionController {
         return ResponseEntity.ok(new AdditionResponse(result));
     }
 
+    /**
+     * Adds two large non-negative integers submitted as request parameters.
+     *
+     * @param firstNumber the first number to add
+     * @param secondNumber the second number to add
+     * @return a response entity containing the sum as a string
+     */
     @PostMapping("/add")
     public ResponseEntity<AdditionResponse> add(@RequestParam String firstNumber, @RequestParam String secondNumber) {
         String result = additionService.add(firstNumber, secondNumber);
